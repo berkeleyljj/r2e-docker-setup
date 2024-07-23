@@ -23,9 +23,11 @@ def main():
             && pdm config install.cache on \
             && pdm config venv.with_pip on \
             && pdm config venv.backend virtualenv \
-            && pip install pipreqs\
             && pdm add -g setuptools \
             && pdm add -g wheel \
+            && pdm remove -g wheel \
+            && pdm add -g wheel \
+            && pip install pipreqs\
         ",
     )
 

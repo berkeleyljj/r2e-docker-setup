@@ -100,7 +100,7 @@ def pip_build_repo(
         result = run_subprocess_shell(
             f"""export PATH={PDM_BIN_DIR} \
                 && cd {REPOS_DIR}/{repo_name} ;
-                pdm venv create 3.11 ; 
+                python3 -m venv .venv ;
                 cat pipreqs_r2e_requirements.txt | xargs -n 1 .venv/bin/python -m pip install ;
                 for file in requirements*.txt; do
                     cat $file | xargs -n 1 .venv/bin/python -m pip install ;

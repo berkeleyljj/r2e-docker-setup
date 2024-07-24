@@ -9,7 +9,6 @@ from install_single_repo import install_single_repo
 
 def main():
     # Modify pdm
-    print(f"Setting up pdm...")
 
     start, end, parallel = sys.argv[1:4]
     start = int(start)
@@ -19,14 +18,8 @@ def main():
     # Print out the result of this process to stdout
     result = run_subprocess_shell(
         f"export PATH={PDM_BIN_DIR} \
-            && pdm --version \
-            && pdm config install.cache on \
-            && pdm config venv.with_pip on \
-            && pdm config venv.backend virtualenv \
-            && pdm add -g setuptools \
-            && pdm add -g wheel \
-            && pdm remove -g wheel \
-            && pdm add -g wheel \
+            && pip install setuptools\
+            && pip install wheel\
             && pip install pipreqs\
         ",
     )

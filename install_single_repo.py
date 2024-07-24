@@ -21,9 +21,10 @@ def install_single_repo(repo_name: str):
     )
     ptu = PyprojectTomlUpdater(Path(f"{REPOS_DIR}/{repo_name}/pyproject.toml"))
 
-    pdm_import_all(repo_name, ptu, repo_logger)
+    #pdm_import_all(repo_name, ptu, repo_logger)
 
-    use_orig_pyproject_toml = False  # not used
+    #use_orig_pyproject_toml = False  # not used
+    '''
     for i in range(BUILD_TRIES):
         result = pdm_build_repo(repo_name, ptu, repo_logger, current_try=i)
         if result.returncode == 0:
@@ -52,6 +53,7 @@ def install_single_repo(repo_name: str):
     else:
         use_orig_pyproject_toml = True
         repo_logger.error(f"Failed to build {repo_name} using pdm")
+    ''''
 
     pip_build_repo(
         repo_name,

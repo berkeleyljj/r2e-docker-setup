@@ -19,6 +19,7 @@ def install_single_repo(repo_name: str):
         console=False,
         level=logging.INFO,
     )
+    print("Started installing ", repo_name)
     ptu = PyprojectTomlUpdater(Path(f"{REPOS_DIR}/{repo_name}/pyproject.toml"))
 
     #pdm_import_all(repo_name, ptu, repo_logger)
@@ -53,14 +54,15 @@ def install_single_repo(repo_name: str):
     else:
         use_orig_pyproject_toml = True
         repo_logger.error(f"Failed to build {repo_name} using pdm")
-    ''''
-
+    '''
+    print("Running pip build")
     pip_build_repo(
         repo_name,
         ptu,
         repo_logger,
         use_orig_pyproject_toml=True,
     )
+    print("Running install for r2e test server")
 
     run_subprocess_shell(
         f"cd {REPOS_DIR}/{repo_name} && .venv/bin/python -m pip install r2e_test_server",

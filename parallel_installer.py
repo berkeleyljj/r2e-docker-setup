@@ -15,7 +15,7 @@ def main():
     end = int(end)
     parallel = int(parallel)
 
-    # Print out the result of this process to stdout
+    print("Running subprocess to install dependencies...")
     result = run_subprocess_shell(
         f"export PATH={PDM_BIN_DIR} \
             && pip install setuptools\
@@ -23,6 +23,11 @@ def main():
             && pip install pipreqs\
         ",
     )
+    print("Done!")
+    try:
+        print("Result: ", result)
+    except Exception as e:
+        print("Error: ", e)
 
     all_repos = sorted(os.listdir(REPOS_DIR))
     all_repos = all_repos[start:end]

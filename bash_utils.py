@@ -14,6 +14,8 @@ def run_subprocess_shell(
             capture_output=True,
             text=True,
             # check=True,
+            stdout=sys.stdout,
+            stderr=subprocess.STDOUT,
             **kwargs,
         )
     except subprocess.TimeoutExpired as e:

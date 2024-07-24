@@ -89,9 +89,6 @@ def pip_build_repo(
                 for file in requirements*.txt; do
                     cat $file | xargs -n 1 .venv/bin/python -m pip install ;
                 done
-                for file in requirements/*.txt; do
-                    cat $file | xargs -n 1 .venv/bin/python -m pip install ;
-                done
                 .venv/bin/python -m pip install -e . ;
             """,
             repo_logger,
@@ -104,9 +101,6 @@ def pip_build_repo(
                 python3 -m venv .venv ;
                 cat pipreqs_r2e_requirements.txt | xargs -n 1 .venv/bin/python -m pip install ;
                 for file in requirements*.txt; do
-                    cat $file | xargs -n 1 .venv/bin/python -m pip install ;
-                done
-                for file in requirements/*.txt; do
                     cat $file | xargs -n 1 .venv/bin/python -m pip install ;
                 done
                 .venv/bin/python -m pip install -e . ;

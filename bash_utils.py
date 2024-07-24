@@ -1,6 +1,7 @@
 import subprocess
 from logging import Logger
 from subprocess import CompletedProcess
+import sys
 
 
 def run_subprocess_shell(

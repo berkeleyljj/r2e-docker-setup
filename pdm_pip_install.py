@@ -75,6 +75,7 @@ def pip_build_repo(
     use_orig_pyproject_toml: bool,
 ) -> CompletedProcess[str]:
     repo_logger.info(f"Building {repo_name} using `pip install -e .`...")
+    print(f"Building {repo_name} using `pip install -e .`...")
 
     if use_orig_pyproject_toml:
         ptu.revert_to_orig()

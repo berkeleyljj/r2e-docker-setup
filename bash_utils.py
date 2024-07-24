@@ -12,7 +12,7 @@ def run_subprocess_shell(
             command,
             executable="/bin/bash",
             shell=True,
-            capture_output=True,
+            #capture_output=True,
             text=True,
             # check=True,
             stdout=sys.stdout,

@@ -22,7 +22,7 @@ def main():
             && pdm config install.cache on \
             && pdm config venv.with_pip on \
             && pdm config venv.backend virtualenv \
-            && pdm add -g setuptools \
+            && pdm add -g setuptools==70.2.0 \
             && pdm add -g wheel \
             && pip install pipreqs\
         ",

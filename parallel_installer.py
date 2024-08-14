@@ -24,7 +24,7 @@ def main():
             && pdm config venv.backend virtualenv \
             && pdm add -g setuptools==70.2.0 \
             && pdm add -g wheel \
-            && pip install pipreqs\
+            && pip install git+https://github.com/berkeleyljj/pipreqs_ljj.git\
         ",
     )
 
